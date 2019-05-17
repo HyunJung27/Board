@@ -1,0 +1,15 @@
+<div class="container">
+    <a href="{%url 'show' %}">뒤로</a>
+    <a href="{% url 'edit' pk=board.pk %}">글 수정하기</a>
+    <h1>제목:{{board.title}}</h1>
+    <p>내용: {{board.body}}</p>
+    <p>등록일: {{board.update_date}}</p>
+    <a href="{% url 'delete' pk=board.pk %}">삭제</a>
+    <hr>
+
+    <form action="{% url 'comment' pk=board.pk % }" method='POST'>
+        {%csrf_token%}
+        <input type="text" name="content" placeholder="Write your comments">
+        <input type="submit" value="Write" />
+    </form>
+</div>

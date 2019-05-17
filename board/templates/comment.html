@@ -1,0 +1,8 @@
+<hr>
+{% for comment in board.comments.all %}
+    <div class ="comment">
+        <p>{{ comment.message }}</p>
+    </div>
+{% empty %}
+    <p>No comments here yet</p>
+{% endfor %}
